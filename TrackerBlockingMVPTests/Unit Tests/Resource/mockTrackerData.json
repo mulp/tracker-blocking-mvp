@@ -1,0 +1,179 @@
+    {
+    "trackers": {
+        "tracker-1.com": {
+            "domain": "tracker-1.com",
+            "owner": {
+                "name": "Tracker 1, Inc.",
+                "displayName": "Tracker 1"
+            },
+            "prevalence": 1,
+            "fingerprinting": 1,
+            "cookies": 1,
+            "categories": [
+                "Ad Motivated Tracking",
+                "Advertising",
+                "Analytics",
+                "Third-Party Analytics Marketing"
+            ],
+            "default": "block",
+            "rules": [
+                {
+                    "rule": "tracker-1\\.com\\/tracking\\/tracker\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                },
+                {
+                    "rule": "tracker-1\\.com\\/tracking\\/tracker2\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                },
+                {
+                    "rule": "tracker-1\\.com\\/tracking\\/tracker3\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                }
+            ]
+        },
+        "tracker-2.com": {
+            "domain": "tracker-2.com",
+            "owner": {
+                "name": "Tracker 2, Inc.",
+                "displayName": "Tracker 2"
+            },
+            "prevalence": 1,
+            "fingerprinting": 1,
+            "cookies": 1,
+            "categories": [
+                "Ad Motivated Tracking",
+                "Advertising",
+                "Analytics",
+                "Third-Party Analytics Marketing"
+            ],
+            "default": "block",
+            "rules": [
+                {
+                    "rule": "tracker-2\\.com\\/tracking\\/tracker\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                },
+                {
+                    "rule": "tracker-2\\.com\\/tracking\\/tracker2\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                }
+            ]
+        },
+        "tracker-3.com": {
+            "domain": "tracker-3.com",
+            "owner": {
+                "name": "Tracker 3, Inc.",
+                "displayName": "Tracker 3"
+            },
+            "prevalence": 1,
+            "fingerprinting": 1,
+            "cookies": 1,
+            "categories": [
+                "Ad Motivated Tracking",
+                "Advertising",
+                "Analytics",
+                "Third-Party Analytics Marketing"
+            ],
+            "default": "block",
+            "rules": [
+                {
+                    "rule": "tracker-3\\.com\\/tracking\\/tracker\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                }
+            ]
+        },
+        "tracker-3adservices.com": {
+            "domain": "tracker-3.com",
+            "owner": {
+                "name": "Tracker 3, Inc.",
+                "displayName": "Tracker 3"
+            },
+            "prevalence": 1,
+            "fingerprinting": 1,
+            "cookies": 1,
+            "categories": [
+                "Ad Motivated Tracking",
+                "Advertising"
+            ],
+            "default": "block",
+            "rules": [
+                {
+                    "rule": "tracker-3\\.com\\/tracking\\/adservices\\/tracker\\.js",
+                    "fingerprinting": 1,
+                    "cookies": 0.01
+                }
+            ]
+        },
+        "tracker-4.com": {
+            "domain": "tracker-4.com",
+            "owner": {
+                "name": "Test Site for Tracker Blocking",
+                "displayName": "Bad Third Party Site",
+                "privacyPolicy": "",
+                "url": "http://tracker.test"
+            },
+            "prevalence": 0.1,
+            "fingerprinting": 3,
+            "cookies": 0.1,
+            "categories": [],
+            "default": "block",
+            "rules": [
+                {
+                    "action": "ignore",
+                    "rule": "tracker-4\\.com\\/breakage"
+                },
+                {
+                    "action": "unsupported-action",
+                    "rule": "tracker-4\\.com\\/unsupported-action"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "Tracker 1, Inc.": {
+            "domains": [
+                "tracker-1.com"
+            ],
+            "prevalence": 1,
+            "displayName": "Tracker 1"
+        },
+        "Tracker 2, Inc.": {
+            "domains": [
+                "tracker-2.com"
+            ],
+            "prevalence": 1,
+            "displayName": "Tracker 2"
+        },
+        "Tracker 3, Inc.": {
+            "domains": [
+                "tracker-3.com"
+            ],
+            "prevalence": 1,
+            "displayName": "Tracker 3"
+        },
+        "Tracker 4, Inc.": {
+            "domains": [
+                "tracker-4.com"
+            ],
+            "prevalence": 1,
+            "displayName": "Tracker 4"
+        }
+    },
+    "domains": {
+        "tracker-1.com": "Tracker 1",
+        "tracker-2.com": "Tracker 2",
+        "tracker-3.com": "Tracker 3",
+        "tracker-4.com": "Tracker 4"
+    },
+    "cnames": {
+        "tracker-1.com": "cname.tracker-1.com",
+        "tracker-2.com": "cname.tracker-2.com",
+        "tracker-3.com": "cname.tracker-3.com",
+        "tracker-4.com": "cname.tracker-4.com"
+    }
+}
