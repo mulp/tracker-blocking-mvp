@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker Blocking Test - 2</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .test-container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .tracker-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tracker-name {
+            font-weight: bold;
+        }
+        .tracker-category {
+            font-size: 14px;
+            color: #666;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 80px;
+        }
+        .blocked {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .loaded {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .testing {
+            background-color: #e2e3e5;
+            color: #383d41;
+        }
+        .instructions {
+            background-color: #e2e3e5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .summary {
+            margin: 20px 0;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .good {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .bad {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .neutral {
+            background-color: #e2e3e5;
+            color: #383d41;
+        }
+        #test-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tracker Blocking Test</h1>
+    
+    <div class="instructions">
+        <h3>How to verify tracker blocking:</h3>
+        <ol>
+            <li>Click the "Run Test" button below to start the test</li>
+            <li>The test will create pixel-size images and scripts from tracking domains</li>
+            <li>If your blocker is working, most trackers should show as "Blocked"</li>
+            <li>Toggle the shield icon in the URL bar and run the test again to compare results</li>
+        </ol>
+    </div>
+
+    <button id="test-button">Run Test</button>
+    
+    <div id="summary" class="summary neutral">
+        Click "Run Test" to begin
+    </div>
+
+    <div id="trackers-container">
+        <!-- Trackers will be added here -->
+    </div>
+    
+    <script>
+        // List of trackers to test
+        const trackers = [
+            { name: 'Google Analytics', domain: 'www.google-analytics.com', category: 'Analytics', path: '/analytics.js' },
+            { name: 'Facebook Pixel', domain: 'connect.facebook.net', category: 'Social Media', path: '/en_US/fbevents.js' },
+            { name: 'DoubleClick', domain: 'doubleclick.net', category: 'Advertising', path: '/dot.gif' },
+            { name: 'Google Tag Manager', domain: 'www.googletagmanager.com', category: 'Analytics', path: '/gtm.js' },
+            { name: 'Amazon Ads', domain: 'amazon-adsystem.com', category: 'Advertising', path: '/aax2/apstag.js' },
+            { name: 'Twitter Ads', domain: 'static.ads-twitter.com', category: 'Social Media', path: '/uwt.js' },
+            { name: 'Criteo', domain: 'static.criteo.net', category: 'Advertising', path: '/js/ld/publishertag.js' },
+            { name: 'Scorecard Research', domain: 'sb.scorecardresearch.com', category: 'Analytics', path: '/beacon.js' },
+            { name: 'Hotjar', domain: 'static.hotjar.com', category: 'Analytics', path: '/c/hotjar-' },
+            { name: 'Taboola', domain: 'cdn.taboola.com', category: 'Advertising', path: '/libtrc/unip/tfa.js' }
+        ];
+        
+        // Create tracker elements in the UI
+        function createTrackerElements() {
+            const container = document.getElementById('trackers-container');
+            container.innerHTML = ''; // Clear existing elements
+            
+            trackers.forEach((tracker, index) => {
+                const div = document.createElement('div');
+                div.className = 'tracker-item';
+                div.id = `tracker-${index}`;
+                
+                div.innerHTML = `
+                    <div>
+                        <div class="tracker-name">${tracker.name}</div>
+                        <div class="tracker-category">${tracker.category}</div>
+                    </div>
+                    <div class="status testing">Testing...</div>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+        
+        // Test each tracker by creating elements that would load them
+        function testTrackers() {
+            return new Promise(async (resolve) => {
+                const results = [];
+                const testFrame = document.createElement('div');
+                testFrame.style.display = 'none';
+                document.body.appendChild(testFrame);
+                
+                for (let i = 0; i < trackers.length; i++) {
+                    const tracker = trackers[i];
+                    const result = await testSingleTracker(tracker, i, testFrame);
+                    results.push(result);
+                    
+                    // Update UI immediately after each test
+                    updateTrackerStatus(i, result);
+                }
+                
+                document.body.removeChild(testFrame);
+                resolve(results);
+            });
+        }
+        
+        // Test a single tracker
+        function testSingleTracker(tracker, index, container) {
+            return new Promise(resolve => {
+                // Use both an image and a script to test
+                const img = new Image();
+                const script = document.createElement('script');
+                const trackerUrl = `https://${tracker.domain}${tracker.path}`;
+                let completed = false;
+                
+                // Set timeout (consider blocked if no response in 3 seconds)
+                const timeout = setTimeout(() => {
+                    if (!completed) {
+                        completed = true;
+                        resolve('blocked');
+                    }
+                }, 3000);
+                
+                // Set up image test
+                img.onload = function() {
+                    if (!completed) {
+                        completed = true;
+                        clearTimeout(timeout);
+                        resolve('loaded');
+                    }
+                };
+                
+                img.onerror = function() {
+                    // Don't resolve yet - let the script test run too
+                };
+                
+                // Set up script test
+                script.onload = function() {
+                    if (!completed) {
+                        completed = true;
+                        clearTimeout(timeout);
+                        resolve('loaded');
+                    }
+                };
+                
+                script.onerror = function() {
+                    if (!completed && img.complete && img.naturalHeight === 0) {
+                        // Both img and script failed to load
+                        completed = true;
+                        clearTimeout(timeout);
+                        resolve('blocked');
+                    }
+                };
+                
+                // Start tests
+                img.src = trackerUrl;
+                script.src = trackerUrl;
+                container.appendChild(img);
+                container.appendChild(script);
+                
+                // Also try using fetch as a third test method
+                fetch(trackerUrl, { mode: 'no-cors', cache: 'no-store' })
+                    .then(() => {
+                        if (!completed) {
+                            completed = true;
+                            clearTimeout(timeout);
+                            resolve('loaded');
+                        }
+                    })
+                    .catch(() => {
+                        // Let the other tests complete
+                    });
+            });
+        }
+        
+        // Update the UI for a tracker test result
+        function updateTrackerStatus(index, status) {
+            const element = document.getElementById(`tracker-${index}`);
+            if (!element) return;
+            
+            const statusElement = element.querySelector('.status');
+            statusElement.className = `status ${status}`;
+            statusElement.textContent = status === 'blocked' ? 'Blocked' : 'Loaded';
+        }
+        
+        // Update the summary section based on test results
+        function updateSummary(results) {
+            const summary = document.getElementById('summary');
+            const blockedCount = results.filter(r => r === 'blocked').length;
+            const total = results.length;
+            const percentage = Math.round((blockedCount / total) * 100);
+            
+            if (percentage >= 80) {
+                summary.className = 'summary good';
+                summary.textContent = `Protection working well: ${blockedCount} out of ${total} trackers blocked (${percentage}%)`;
+            } else if (percentage >= 50) {
+                summary.className = 'summary neutral';
+                summary.textContent = `Partial protection: ${blockedCount} out of ${total} trackers blocked (${percentage}%)`;
+            } else {
+                summary.className = 'summary bad';
+                summary.textContent = `Limited protection: Only ${blockedCount} out of ${total} trackers blocked (${percentage}%)`;
+            }
+        }
+        
+        // Run the complete test
+        async function runFullTest() {
+            const button = document.getElementById('test-button');
+            const summary = document.getElementById('summary');
+            
+            // Show testing state
+            button.disabled = true;
+            button.textContent = 'Testing...';
+            summary.className = 'summary neutral';
+            summary.textContent = 'Testing tracker blocking...';
+            
+            // Create UI elements
+            createTrackerElements();
+            
+            // Run tests
+            const results = await testTrackers();
+            
+            // Update summary
+            updateSummary(results);
+            
+            // Re-enable button
+            button.disabled = false;
+            button.textContent = 'Run Test Again';
+        }
+        
+        // Set up the button click handler
+        document.getElementById('test-button').addEventListener('click', runFullTest);
+    </script>
+</body>
+</html>

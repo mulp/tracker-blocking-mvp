@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  TrackerBlockingMVP
+
+  Created by FC on 24/2/25.
+  
+*/
+
+"browser.title" = "FC Browser";
+"browser.url.bar.placeholder" = "Enter URL and press Enter";
+"browser.loading.label" = "Setting up privacy settings...";
+"browser.alert.test.tracking.title" = "Test Tracker Blocking";
+"browser.alert.test.tracking.msg" = "This will load a test page to verify tracker blocking is working correctly.";
+"tracker.blocking.disabled.title" = "Tracker blocking disabled for %@";
+"tracker.blocking.enabled.title" = "Tracker blocking enabled for %@";
+"tracker.blocking.page.not.found" = "Error: Could not find test page.";
+"browser.test.tracking.title" = "Tracker Blocking Test";
+"browser.test.tracking.msg" = "Use the shield button to toggle protection.";
+"browser.error.page.not.found.title" = "Error while loading the page.";
+"browser.error.retry.button" = "Try again";
+"browser.error.page.not.found.message" = "There was an error while loading the page. The requested URL could not be loaded.";
+"allowlist.title" = "Allowlist";
+"allowlist.one.domain.blocked.title" = "1 domain blocked";
+"allowlist.domains.blocked.title" = "%d domains blocked";
+"allowlist.alert.title" = "Domains Blocked";
+"allowlist.block.title" = "Block";
