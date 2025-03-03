@@ -20,7 +20,9 @@ class BrowserViewController: UIViewController, UITextFieldDelegate {
     private static let remoteTestPageURLString = "https://tracker-test.local/"
     private let ruleCache: RuleCacheProtocol
     private let allowListManager: AllowlistManagerProtocol
-    
+    private var areRulesReady = false
+    private var pendingURLToLoad: URL?
+
     // MARK: - Lifecycle
     public init(with viewModel: BrowserViewModelProtocol,
                 contentBlockerManager: ContentBlockerProtocol,
@@ -42,7 +44,16 @@ class BrowserViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        fetchAndParseBlockingRules()
+        loadBlockingRules { [weak self] in
+            self?.areRulesReady = true
+            var targetURL = URL(string: "https://duckduckgo.com")
+            if let pendingURLToLoad = self?.pendingURLToLoad {
+                targetURL = pendingURLToLoad
+            }
+            if let targetURL = targetURL {
+                self?.loadURL(targetURL)
+            }
+        }
      }
     
     // MARK: - UI Setup
@@ -111,10 +122,11 @@ class BrowserViewController: UIViewController, UITextFieldDelegate {
             .store(in: &cancellables)
     }
     
-    private func fetchAndParseBlockingRules() {
+    private func loadBlockingRules(completion: @escaping () -> Void = {}) {
         if let cachedRules = ruleCache.getCachedRules() {
             rootView.setPrivacyButtonState(enable: true)
             applyContentRuleList(rulesJSON: cachedRules.rulesJSON, etag: cachedRules.etag)
+            completion()
         } else {
             rootView.setPrivacyButtonState(enable: false)
             isUpdateBlockingRulesInProgress = true
@@ -153,6 +165,7 @@ class BrowserViewController: UIViewController, UITextFieldDelegate {
                     // Leave with a simple print for the MVP
                     print("Failed to store cached rules: \(error)")
                 }
+                completion()
             }
             .store(in: &cancellables)
     }
@@ -178,6 +191,12 @@ class BrowserViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func loadURL(_ url: URL) {
+        guard areRulesReady else {
+            rootView.showToast(message: NSLocalizedString("browser.loading.rules", comment: ""))
+            pendingURLToLoad = url
+            return
+        }
+
         currentDomain = url.host ?? ""
         checkUISettings(url)
         rootView.webView.load(URLRequest(url: url))
@@ -260,7 +279,7 @@ class BrowserViewController: UIViewController, UITextFieldDelegate {
                 })
                 .store(in: &cancellables)
         } else {
-            fetchAndParseBlockingRules()
+            loadBlockingRules()
         }
     }
 

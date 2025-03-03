@@ -24,3 +24,4 @@
 "allowlist.domains.blocked.title" = "%d domains blocked";
 "allowlist.alert.title" = "Domains Blocked";
 "allowlist.block.title" = "Block";
+"browser.loading.rules" = "Regenerating privacy rules...";
