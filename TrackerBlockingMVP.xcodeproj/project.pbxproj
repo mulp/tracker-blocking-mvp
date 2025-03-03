@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E52DE98B2D75EC0000F624CF /* TrackerRadarKit in Frameworks */ = {isa = PBXBuildFile; productRef = E52DE98A2D75EC0000F624CF /* TrackerRadarKit */; };
+		E52DE98E2D75EC0900F624CF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E52DE98D2D75EC0900F624CF /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E52DE96C2D75EA4700F624CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52DE98B2D75EC0000F624CF /* TrackerRadarKit in Frameworks */,
+				E52DE98E2D75EC0900F624CF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +110,8 @@
 			);
 			name = TrackerBlockingMVP;
 			packageProductDependencies = (
+				E52DE98A2D75EC0000F624CF /* TrackerRadarKit */,
+				E52DE98D2D75EC0900F624CF /* SnapKit */,
 			);
 			productName = TrackerBlockingMVP;
 			productReference = E52DE9552D75EA4600F624CF /* TrackerBlockingMVP.app */;
@@ -159,6 +168,10 @@
 			);
 			mainGroup = E52DE94C2D75EA4600F624CF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E52DE9892D75EC0000F624CF /* XCRemoteSwiftPackageReference "TrackerRadarKit" */,
+				E52DE98C2D75EC0900F624CF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E52DE9562D75EA4600F624CF /* Products */;
 			projectDirPath = "";
@@ -451,6 +464,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E52DE9892D75EC0000F624CF /* XCRemoteSwiftPackageReference "TrackerRadarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/duckduckgo/TrackerRadarKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		E52DE98C2D75EC0900F624CF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E52DE98A2D75EC0000F624CF /* TrackerRadarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E52DE9892D75EC0000F624CF /* XCRemoteSwiftPackageReference "TrackerRadarKit" */;
+			productName = TrackerRadarKit;
+		};
+		E52DE98D2D75EC0900F624CF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E52DE98C2D75EC0900F624CF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E52DE94D2D75EA4600F624CF /* Project object */;
 }

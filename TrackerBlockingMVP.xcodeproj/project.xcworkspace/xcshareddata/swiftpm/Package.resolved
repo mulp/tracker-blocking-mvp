@@ -1,0 +1,24 @@
+{
+  "originHash" : "f999e04a1f10bdbe303f45faae2bceab2f24561710a619cad48fb5d70f68eb37",
+  "pins" : [
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    },
+    {
+      "identity" : "trackerradarkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/duckduckgo/TrackerRadarKit",
+      "state" : {
+        "revision" : "5de0a610a7927b638a5fd463a53032c9934a2c3b",
+        "version" : "3.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
