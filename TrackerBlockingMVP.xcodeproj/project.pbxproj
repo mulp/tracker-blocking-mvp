@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E52DE98B2D75EC0000F624CF /* TrackerRadarKit in Frameworks */ = {isa = PBXBuildFile; productRef = E52DE98A2D75EC0000F624CF /* TrackerRadarKit */; };
 		E52DE98E2D75EC0900F624CF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E52DE98D2D75EC0900F624CF /* SnapKit */; };
+		E5885D612D75FF0A00D7A6F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E5885D5F2D75FF0A00D7A6F5 /* README.md */; };
+		E5885D622D75FF0A00D7A6F5 /* URLNavigationBar.md in Resources */ = {isa = PBXBuildFile; fileRef = E5885D602D75FF0A00D7A6F5 /* URLNavigationBar.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,8 @@
 		E52DE9552D75EA4600F624CF /* TrackerBlockingMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerBlockingMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E52DE96B2D75EA4700F624CF /* TrackerBlockingMVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerBlockingMVPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5885D332D75FB7400D7A6F5 /* TrackerBlockingMVPTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = TrackerBlockingMVPTests.xctestplan; path = TrackerBlockingMVPTests/TrackerBlockingMVPTests.xctestplan; sourceTree = "<group>"; };
+		E5885D5F2D75FF0A00D7A6F5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E5885D602D75FF0A00D7A6F5 /* URLNavigationBar.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = URLNavigationBar.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -76,6 +80,8 @@
 		E52DE94C2D75EA4600F624CF = {
 			isa = PBXGroup;
 			children = (
+				E5885D5F2D75FF0A00D7A6F5 /* README.md */,
+				E5885D602D75FF0A00D7A6F5 /* URLNavigationBar.md */,
 				E5885D332D75FB7400D7A6F5 /* TrackerBlockingMVPTests.xctestplan */,
 				E52DE9572D75EA4600F624CF /* TrackerBlockingMVP */,
 				E52DE96E2D75EA4700F624CF /* TrackerBlockingMVPTests */,
@@ -191,6 +197,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5885D612D75FF0A00D7A6F5 /* README.md in Resources */,
+				E5885D622D75FF0A00D7A6F5 /* URLNavigationBar.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
