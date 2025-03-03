@@ -24,6 +24,7 @@
 /* Begin PBXFileReference section */
 		E52DE9552D75EA4600F624CF /* TrackerBlockingMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerBlockingMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E52DE96B2D75EA4700F624CF /* TrackerBlockingMVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerBlockingMVPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5885D332D75FB7400D7A6F5 /* TrackerBlockingMVPTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = TrackerBlockingMVPTests.xctestplan; path = TrackerBlockingMVPTests/TrackerBlockingMVPTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -75,6 +76,7 @@
 		E52DE94C2D75EA4600F624CF = {
 			isa = PBXGroup;
 			children = (
+				E5885D332D75FB7400D7A6F5 /* TrackerBlockingMVPTests.xctestplan */,
 				E52DE9572D75EA4600F624CF /* TrackerBlockingMVP */,
 				E52DE96E2D75EA4700F624CF /* TrackerBlockingMVPTests */,
 				E52DE9562D75EA4600F624CF /* Products */,

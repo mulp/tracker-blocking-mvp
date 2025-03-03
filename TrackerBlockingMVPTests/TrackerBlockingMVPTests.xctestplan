@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "3FCCF841-E834-4AC9-A89D-CC450B74A57E",
+      "id" : "56BF10C7-B80E-4342-8BF8-8B5B7660A85C",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -11,17 +11,13 @@
   "defaultOptions" : {
     "targetForVariableExpansion" : {
       "containerPath" : "container:TrackerBlockingMVP.xcodeproj",
-      "identifier" : "E5E7B3DD2D677BCE00269B89",
+      "identifier" : "E52DE9542D75EA4600F624CF",
       "name" : "TrackerBlockingMVP"
     }
   },
   "testTargets" : [
     {
       "parallelizable" : false,
-      "skippedTests" : [
-        "ETagDecoratorTests\/test_getReturnsEmptyDataOnNotModifiedResponse()",
-        "ETagDecoratorTests\/test_getStoredETagWhenResponseContainsIt()"
-      ],
       "target" : {
         "containerPath" : "container:TrackerBlockingMVP.xcodeproj",
         "identifier" : "E52DE96A2D75EA4700F624CF",
