@@ -14,19 +14,11 @@
 			remoteGlobalIDString = E52DE9542D75EA4600F624CF;
 			remoteInfo = TrackerBlockingMVP;
 		};
-		E52DE9762D75EA4700F624CF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E52DE94D2D75EA4600F624CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E52DE9542D75EA4600F624CF;
-			remoteInfo = TrackerBlockingMVP;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E52DE9552D75EA4600F624CF /* TrackerBlockingMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerBlockingMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E52DE96B2D75EA4700F624CF /* TrackerBlockingMVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerBlockingMVPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E52DE9752D75EA4700F624CF /* TrackerBlockingMVPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerBlockingMVPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -53,11 +45,6 @@
 			path = TrackerBlockingMVPTests;
 			sourceTree = "<group>";
 		};
-		E52DE9782D75EA4700F624CF /* TrackerBlockingMVPUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TrackerBlockingMVPUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +62,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E52DE9722D75EA4700F624CF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,7 +70,6 @@
 			children = (
 				E52DE9572D75EA4600F624CF /* TrackerBlockingMVP */,
 				E52DE96E2D75EA4700F624CF /* TrackerBlockingMVPTests */,
-				E52DE9782D75EA4700F624CF /* TrackerBlockingMVPUITests */,
 				E52DE9562D75EA4600F624CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +79,6 @@
 			children = (
 				E52DE9552D75EA4600F624CF /* TrackerBlockingMVP.app */,
 				E52DE96B2D75EA4700F624CF /* TrackerBlockingMVPTests.xctest */,
-				E52DE9752D75EA4700F624CF /* TrackerBlockingMVPUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,29 +131,6 @@
 			productReference = E52DE96B2D75EA4700F624CF /* TrackerBlockingMVPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E52DE9742D75EA4700F624CF /* TrackerBlockingMVPUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E52DE9862D75EA4700F624CF /* Build configuration list for PBXNativeTarget "TrackerBlockingMVPUITests" */;
-			buildPhases = (
-				E52DE9712D75EA4700F624CF /* Sources */,
-				E52DE9722D75EA4700F624CF /* Frameworks */,
-				E52DE9732D75EA4700F624CF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E52DE9772D75EA4700F624CF /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				E52DE9782D75EA4700F624CF /* TrackerBlockingMVPUITests */,
-			);
-			name = TrackerBlockingMVPUITests;
-			packageProductDependencies = (
-			);
-			productName = TrackerBlockingMVPUITests;
-			productReference = E52DE9752D75EA4700F624CF /* TrackerBlockingMVPUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,10 +145,6 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					E52DE96A2D75EA4700F624CF = {
-						CreatedOnToolsVersion = 16.1;
-						TestTargetID = E52DE9542D75EA4600F624CF;
-					};
-					E52DE9742D75EA4700F624CF = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = E52DE9542D75EA4600F624CF;
 					};
@@ -215,7 +166,6 @@
 			targets = (
 				E52DE9542D75EA4600F624CF /* TrackerBlockingMVP */,
 				E52DE96A2D75EA4700F624CF /* TrackerBlockingMVPTests */,
-				E52DE9742D75EA4700F624CF /* TrackerBlockingMVPUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,13 +179,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E52DE9692D75EA4700F624CF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E52DE9732D75EA4700F624CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -259,13 +202,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E52DE9712D75EA4700F624CF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -273,11 +209,6 @@
 			isa = PBXTargetDependency;
 			target = E52DE9542D75EA4600F624CF /* TrackerBlockingMVP */;
 			targetProxy = E52DE96C2D75EA4700F624CF /* PBXContainerItemProxy */;
-		};
-		E52DE9772D75EA4700F624CF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E52DE9542D75EA4600F624CF /* TrackerBlockingMVP */;
-			targetProxy = E52DE9762D75EA4700F624CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -293,7 +224,6 @@
 				INFOPLIST_FILE = TrackerBlockingMVP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +250,6 @@
 				INFOPLIST_FILE = TrackerBlockingMVP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -491,38 +420,6 @@
 			};
 			name = Release;
 		};
-		E52DE9872D75EA4700F624CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fc.TrackerBlockingMVPUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TrackerBlockingMVP;
-			};
-			name = Debug;
-		};
-		E52DE9882D75EA4700F624CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fc.TrackerBlockingMVPUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TrackerBlockingMVP;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -549,15 +446,6 @@
 			buildConfigurations = (
 				E52DE9842D75EA4700F624CF /* Debug */,
 				E52DE9852D75EA4700F624CF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E52DE9862D75EA4700F624CF /* Build configuration list for PBXNativeTarget "TrackerBlockingMVPUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E52DE9872D75EA4700F624CF /* Debug */,
-				E52DE9882D75EA4700F624CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
