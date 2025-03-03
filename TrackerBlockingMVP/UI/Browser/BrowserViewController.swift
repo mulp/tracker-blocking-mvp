@@ -321,7 +321,7 @@ extension BrowserViewController: WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if let currentURL = webView.url {
+        if let currentURL = webView.url, currentURL.lastPathComponent != "tracker-test.html" {
             rootView.urlField.text = currentURL.absoluteString
         }
         
